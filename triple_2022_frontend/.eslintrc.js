@@ -1,6 +1,6 @@
-const createConfig = require("@titicaca/eslint-config-triple/create-config");
+const createConfig = require('@titicaca/eslint-config-triple/create-config')
 
-module.exports = createConfig({ type: "frontend" });
+module.exports = createConfig({ type: 'frontend' })
 
 // const { extends: extendConfigs, overrides } = createConfig({ type: 'node' })
 
