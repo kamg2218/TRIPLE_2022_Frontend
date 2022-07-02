@@ -1,5 +1,9 @@
 import { styled } from '@stitches/react'
 
+import BadgeSection from './BadgeSection'
+import LogoSection from './LogoSection'
+import TextSection from './TextSection'
+
 const StatisticItems = styled('div', {
   margin: 'auto',
   position: 'relative',
@@ -7,7 +11,13 @@ const StatisticItems = styled('div', {
 })
 
 const StatisticSection = () => {
-  return <StatisticItems>Statistic</StatisticItems>
+  return (
+    <StatisticItems>
+      <LogoSection />
+      <TextSection />
+      <BadgeSection />
+    </StatisticItems>
+  )
 }
 
 export default StatisticSection
