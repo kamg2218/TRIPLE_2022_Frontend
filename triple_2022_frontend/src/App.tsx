@@ -3,12 +3,12 @@ import { styled } from '@stitches/react'
 import StatisticSection from './components/StatisticSection'
 
 const AppContent = styled('div', {
-  width: '100vw',
-  height: '100vh',
-  minWidth: '1200px',
-  display: 'flex',
   alignItems: 'center',
+  display: 'flex',
+  height: '100vh',
   justifyContent: 'center',
+  minWidth: '1200px',
+  width: '100vw',
 })
 const MainContent = styled('div', {
   minHeight: '450px',
