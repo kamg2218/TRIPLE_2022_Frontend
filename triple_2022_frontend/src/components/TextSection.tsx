@@ -1,4 +1,5 @@
 import { styled } from '@stitches/react'
+import { useEffect, useRef } from 'react'
 
 import { fadeInUp } from '../style'
 
@@ -20,58 +21,71 @@ const TextBold = styled('span', {
 })
 
 const TextSection = () => {
-  const countSlower = (query: Element, upto: number, interval: number) => {
-    setTimeout(() => {
-      const num = Number(query.innerHTML)
-      if (num < upto) {
-        query.innerHTML = String(num + 1)
-        countSlower(query, upto, interval + 2)
-      }
-    }, interval)
-  }
+  const traveler = useRef<HTMLSpanElement>(null)
+  const review = useRef<HTMLSpanElement>(null)
+  const schedule = useRef<HTMLSpanElement>(null)
 
-  const counter = (id: string, upto: number, interval: number) => {
-    const result = setInterval(() => {
-      const query = document.querySelector(id)
-      if (query) {
+  useEffect(() => {
+    const countSlower = (
+      query: HTMLSpanElement,
+      upto: number,
+      interval: number,
+    ) => {
+      setTimeout(() => {
         const num = Number(query.innerHTML)
-        if (num > upto * 0.9) {
-          clearInterval(result)
-          countSlower(query, upto, interval)
-        } else {
+        if (num < upto) {
           query.innerHTML = String(num + 1)
+          countSlower(query, upto, interval + 2)
         }
-      }
-    }, 1)
-    setTimeout(() => {
-      const query = document.querySelector(id)
-      if (query) {
-        query.innerHTML = String(upto)
-      }
-    }, 2800)
-  }
+      }, interval)
+    }
+    const counter = (
+      id: React.RefObject<HTMLSpanElement>,
+      upto: number,
+      interval: number,
+    ) => {
+      const result = setInterval(() => {
+        const query = id.current
+        if (query) {
+          const num = Number(query.innerHTML)
+          if (num > upto * 0.9) {
+            clearInterval(result)
+            countSlower(query, upto, interval)
+          } else {
+            query.innerHTML = String(num + 1)
+          }
+        }
+      }, 1)
+      setTimeout(() => {
+        const query = id.current
+        if (query) {
+          query.innerHTML = String(upto)
+        }
+      }, 2800)
+    }
 
-  counter('#traveler', 700, 5)
-  counter('#review', 100, 500)
-  counter('#schedule', 470, 55)
+    counter(traveler, 700, 5)
+    counter(review, 100, 500)
+    counter(schedule, 470, 55)
+  }, [])
 
   return (
     <TextItems>
       <TextItem>
         <TextBold>
-          <span id="traveler">0</span>만 명
+          <span ref={traveler}>0</span>만 명
         </TextBold>
         의 여행자
       </TextItem>
       <TextItem>
         <TextBold>
-          <span id="review">0</span>만 개
+          <span ref={review}>0</span>만 개
         </TextBold>
         의 여행 리뷰
       </TextItem>
       <TextItem>
         <TextBold>
-          <span id="schedule">0</span>만 개
+          <span ref={schedule}>0</span>만 개
         </TextBold>
         의 여행 일정
       </TextItem>
