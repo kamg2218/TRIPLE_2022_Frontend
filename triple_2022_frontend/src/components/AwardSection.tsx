@@ -25,14 +25,14 @@ const AwardImg = styled('img', {
   marginRight: '1%',
 })
 const AwardText = styled('div', {
-  minWidth: '100%',
-  lineHeight: '22px',
   color: 'rgba(58, 58, 58, 0.8)',
   fontWeight: 'bold',
   fontFamily: 'sans-serif',
+  lineHeight: '22px',
+  minWidth: '100%',
 })
 
-const BadgeSection = () => {
+const AwardSection = () => {
   return (
     <AwardItems>
       <AwardItem>
@@ -54,4 +54,4 @@ const BadgeSection = () => {
     </AwardItems>
   )
 }
-export default BadgeSection
+export default AwardSection
