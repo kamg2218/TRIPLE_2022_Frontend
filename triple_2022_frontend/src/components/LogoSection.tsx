@@ -5,10 +5,13 @@ import { fadeInUp } from '../style'
 
 const LogoItems = styled('div', {
   animation: `${fadeInUp} 700ms`,
+  position: 'absolute',
 })
 const LogoText = styled('div', {
   bottom: '50px',
+  color: 'rgba(58, 58, 58, 0.7);',
   fontSize: '15px',
+  fontFamily: 'sans-serif',
   left: '50%',
   position: 'absolute',
   transform: 'translateX(-50%)',

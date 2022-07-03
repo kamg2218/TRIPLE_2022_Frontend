@@ -27,6 +27,9 @@ const AwardImg = styled('img', {
 const AwardText = styled('div', {
   minWidth: '100%',
   lineHeight: '22px',
+  color: 'rgba(58, 58, 58, 0.8)',
+  fontWeight: 'bold',
+  fontFamily: 'sans-serif',
 })
 
 const BadgeSection = () => {

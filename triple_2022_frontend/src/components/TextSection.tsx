@@ -10,6 +10,9 @@ const TextItems = styled('div', {
   marginLeft: '50%',
 })
 const TextItem = styled('div', {
+  color: 'rgb(58, 58, 58)',
+  fontSize: '36px',
+  fontFamily: 'sans-serif',
   marginBottom: '20px',
 })
 const TextBold = styled('span', {
