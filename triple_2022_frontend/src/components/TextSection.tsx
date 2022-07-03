@@ -8,7 +8,7 @@ const TextItems = styled('div', {
   animationDelay: '800ms',
   animationFillMode: 'backwards',
   backgroundColor: 'white',
-  marginLeft: '50%',
+  marginLeft: '60%',
 })
 const TextItem = styled('div', {
   color: 'rgb(58, 58, 58)',

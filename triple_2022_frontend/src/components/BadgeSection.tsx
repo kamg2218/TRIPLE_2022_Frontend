@@ -7,7 +7,7 @@ import { fadeInUp } from '../style'
 const AwardItems = styled('div', {
   backgroundColor: 'white',
   display: 'flex',
-  marginLeft: '50%',
+  marginLeft: '60%',
   marginTop: '40px',
 })
 const AwardItem = styled('div', {
