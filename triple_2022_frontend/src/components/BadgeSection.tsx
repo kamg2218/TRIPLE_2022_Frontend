@@ -17,7 +17,7 @@ const AwardItem = styled('div', {
   animationFillMode: 'backwards',
   display: 'flex',
   marginRight: '4%',
-  padding: '5px 0px 5px',
+  padding: '5px 0px',
 })
 const AwardImg = styled('img', {
   width: '54px',

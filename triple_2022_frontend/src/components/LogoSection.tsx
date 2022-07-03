@@ -9,7 +9,7 @@ const LogoItems = styled('div', {
 })
 const LogoText = styled('div', {
   bottom: '50px',
-  color: 'rgba(58, 58, 58, 0.7);',
+  color: 'rgba(58, 58, 58, 0.7)',
   fontSize: '15px',
   fontFamily: 'sans-serif',
   left: '50%',
