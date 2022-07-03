@@ -30,27 +30,29 @@ const TextSection = () => {
       query: HTMLSpanElement,
       upto: number,
       interval: number,
+      count: number,
     ) => {
       setTimeout(() => {
         const num = Number(query.innerHTML)
         if (num < upto) {
           query.innerHTML = String(num + 1)
-          countSlower(query, upto, interval + 2)
+          countSlower(query, upto, interval, count * 1.6)
         }
-      }, interval)
+      }, interval + count)
     }
     const counter = (
       id: React.RefObject<HTMLSpanElement>,
       upto: number,
       interval: number,
+      factor: number,
     ) => {
       const result = setInterval(() => {
         const query = id.current
         if (query) {
           const num = Number(query.innerHTML)
-          if (num > upto * 0.9) {
+          if (num > upto * factor) {
             clearInterval(result)
-            countSlower(query, upto, interval)
+            countSlower(query, upto, interval, 1)
           } else {
             query.innerHTML = String(num + 1)
           }
@@ -61,12 +63,12 @@ const TextSection = () => {
         if (query) {
           query.innerHTML = String(upto)
         }
-      }, 2800)
+      }, 2000)
     }
 
-    counter(traveler, 700, 5)
-    counter(review, 100, 500)
-    counter(schedule, 470, 55)
+    counter(traveler, 700, 36, 0.97)
+    counter(review, 100, 140, 0.8)
+    counter(schedule, 470, 34, 0.95)
   }, [])
 
   return (
