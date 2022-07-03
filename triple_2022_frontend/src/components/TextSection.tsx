@@ -20,6 +20,41 @@ const TextBold = styled('span', {
 })
 
 const TextSection = () => {
+  const countSlower = (query: Element, upto: number, interval: number) => {
+    setTimeout(() => {
+      const num = Number(query.innerHTML)
+      if (num < upto) {
+        query.innerHTML = String(num + 1)
+        countSlower(query, upto, interval + 2)
+      }
+    }, interval)
+  }
+
+  const counter = (id: string, upto: number, interval: number) => {
+    const result = setInterval(() => {
+      const query = document.querySelector(id)
+      if (query) {
+        const num = Number(query.innerHTML)
+        if (num > upto * 0.9) {
+          clearInterval(result)
+          countSlower(query, upto, interval)
+        } else {
+          query.innerHTML = String(num + 1)
+        }
+      }
+    }, 1)
+    setTimeout(() => {
+      const query = document.querySelector(id)
+      if (query) {
+        query.innerHTML = String(upto)
+      }
+    }, 2800)
+  }
+
+  counter('#traveler', 700, 5)
+  counter('#review', 100, 500)
+  counter('#schedule', 470, 55)
+
   return (
     <TextItems>
       <TextItem>
