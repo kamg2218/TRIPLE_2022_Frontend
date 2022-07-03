@@ -2,6 +2,7 @@ import { styled } from '@stitches/react'
 
 import playstore from '../img/play-store2x.png'
 import appstore from '../img/badge-apple4x.png'
+import { fadeInUp } from '../style'
 
 const AwardItems = styled('div', {
   backgroundColor: 'white',
@@ -11,6 +12,9 @@ const AwardItems = styled('div', {
 })
 const AwardItem = styled('div', {
   alignItems: 'center',
+  animation: `${fadeInUp} 700ms`,
+  animationDelay: '1600ms',
+  animationFillMode: 'backwards',
   display: 'flex',
   marginRight: '4%',
   padding: '5px 0px 5px',

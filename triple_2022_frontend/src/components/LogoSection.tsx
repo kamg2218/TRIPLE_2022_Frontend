@@ -1,8 +1,11 @@
 import { styled } from '@stitches/react'
 
 import logo from '../img/triple2x.png'
+import { fadeInUp } from '../style'
 
-const LogoItems = styled('div')
+const LogoItems = styled('div', {
+  animation: `${fadeInUp} 700ms`,
+})
 const LogoText = styled('div', {
   bottom: '50px',
   fontSize: '15px',

@@ -1,6 +1,11 @@
 import { styled } from '@stitches/react'
 
+import { fadeInUp } from '../style'
+
 const TextItems = styled('div', {
+  animation: `${fadeInUp} 700ms`,
+  animationDelay: '800ms',
+  animationFillMode: 'backwards',
   backgroundColor: 'white',
   marginLeft: '50%',
 })
