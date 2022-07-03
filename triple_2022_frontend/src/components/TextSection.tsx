@@ -1,10 +1,12 @@
 import { styled } from '@stitches/react'
 import { useEffect, useRef } from 'react'
 
-import { fadeInUp } from '../style'
+import { fadeIn } from '../styles/animations'
+
+import Counter from './Counter'
 
 const TextItems = styled('div', {
-  animation: `${fadeInUp} 700ms`,
+  animation: `${fadeIn} 700ms`,
   animationDelay: '800ms',
   animationFillMode: 'backwards',
   backgroundColor: 'white',
@@ -26,49 +28,9 @@ const TextSection = () => {
   const schedule = useRef<HTMLSpanElement>(null)
 
   useEffect(() => {
-    const countSlower = (
-      query: HTMLSpanElement,
-      upto: number,
-      interval: number,
-      count: number,
-    ) => {
-      setTimeout(() => {
-        const num = Number(query.innerHTML)
-        if (num < upto) {
-          query.innerHTML = String(num + 1)
-          countSlower(query, upto, interval, count * 1.6)
-        }
-      }, interval + count)
-    }
-    const counter = (
-      id: React.RefObject<HTMLSpanElement>,
-      upto: number,
-      interval: number,
-      factor: number,
-    ) => {
-      const result = setInterval(() => {
-        const query = id.current
-        if (query) {
-          const num = Number(query.innerHTML)
-          if (num > upto * factor) {
-            clearInterval(result)
-            countSlower(query, upto, interval, 1)
-          } else {
-            query.innerHTML = String(num + 1)
-          }
-        }
-      }, 1)
-      setTimeout(() => {
-        const query = id.current
-        if (query) {
-          query.innerHTML = String(upto)
-        }
-      }, 2000)
-    }
-
-    counter(traveler, 700, 36, 0.97)
-    counter(review, 100, 140, 0.8)
-    counter(schedule, 470, 34, 0.95)
+    Counter(traveler, 700, 36, 0.97)
+    Counter(review, 100, 140, 0.8)
+    Counter(schedule, 470, 34, 0.95)
   }, [])
 
   return (

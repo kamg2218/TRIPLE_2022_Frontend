@@ -1,6 +1,6 @@
 import { keyframes } from '@stitches/react'
 
-export const fadeInUp = keyframes({
+export const fadeIn = keyframes({
   '0%': {
     opacity: '0',
     transform: 'translate3d(0, 5%, 0)',
